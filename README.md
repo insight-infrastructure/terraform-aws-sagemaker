@@ -5,7 +5,9 @@
 
 ## Features
 
-This module...
+This module sets up a Sagemaker cluster on AWS.
+
+> WIP - Not ready for prime time
 
 ## Terraform Versions
 
@@ -13,10 +15,9 @@ For Terraform v0.12.0+
 
 ## Usage
 
-```
+```hcl-terraform
 module "this" {
-    source = "github.com/insight-infrastructure/terraform-aws-sagemaker"
-
+  source = "github.com/insight-infrastructure/terraform-aws-sagemaker"
 }
 ```
 ## Examples
@@ -29,11 +30,29 @@ No issue is creating limit on this module.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| template | n/a |
 
 ## Inputs
 
-No input.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:-----:|
+| create | Bool to create | `bool` | `true` | no |
+| ingress\_tcp\_public | List of tcp ports for public ingress | `list(string)` | <pre>[<br>  22<br>]</pre> | no |
+| ingress\_udp\_public | List of udp ports for public ingress | `list(string)` | <pre>[<br>  22<br>]</pre> | no |
+| name | The name of the resources | `string` | n/a | yes |
+| notebook\_bucket\_name | n/a | `string` | `""` | no |
+| notebook\_key\_prefix | n/a | `string` | `"notebooks"` | no |
+| notebook\_paths | n/a | `list(string)` | `[]` | no |
+| sagemaker\_notebook\_name | n/a | `any` | n/a | yes |
+| script\_key\_prefix | n/a | `string` | `"scripts"` | no |
+| script\_paths | n/a | `list(string)` | `[]` | no |
+| scripts\_bucket\_name | n/a | `string` | `""` | no |
+| subnet\_id | n/a | `string` | n/a | yes |
+| tags | Tags for resources | `map(string)` | `{}` | no |
+| vpc\_id | n/a | `string` | n/a | yes |
 
 ## Outputs
 

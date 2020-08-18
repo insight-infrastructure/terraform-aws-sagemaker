@@ -8,4 +8,11 @@ provider "aws" {
 
 module "defaults" {
   source = "../.."
+
+  notebook_paths = [
+    "${path.module}/notebooks/Scikit-learn_Estimator_Example_With_Terraform.ipynb"
+  ]
+  scripts_paths = [
+    "${path.module}/scriptss/scikit_learn_script.py"
+  ]
 }
